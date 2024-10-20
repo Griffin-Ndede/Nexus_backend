@@ -19,5 +19,5 @@ class VideoUploadView(APIView):
 class VideoListView(APIView):
     def get(self, request, *args, **kwargs):
         videos = Video.objects.all()
-        video_serializer = VideoSerializer(videos, many=True)
+        video_serializer = VideoSerializer(videos, many=True, context={'request': request})  # Pass the request context
         return Response(video_serializer.data)
