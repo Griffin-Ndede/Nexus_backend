@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Video
+from .models import Video, Categories
 
 class VideoSerializer(serializers.ModelSerializer):
     video_url = serializers.SerializerMethodField()  # Absolute URL for the video file
@@ -20,3 +20,10 @@ class VideoSerializer(serializers.ModelSerializer):
         if request and obj.cover_image:
             return request.build_absolute_uri(obj.cover_image.url)  # Build the absolute URL for the cover image
         return None
+
+class CategoriesSerializer(serializers.ModelSerializer):
+    image_url = serializers.ImageField(required=False)
+
+    class Meta:
+        model = Categories
+        fields ="__all__"
