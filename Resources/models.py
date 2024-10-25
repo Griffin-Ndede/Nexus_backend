@@ -3,15 +3,40 @@ from django.core.exceptions import ValidationError
 from django.utils.deconstruct import deconstructible
 import os
 
-class Video(models.Model):
+# Base model for shared fields
+class BaseVideo(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
     video_file = models.FileField(upload_to='videos/')
-    cover_image = models.ImageField(upload_to='covers/', blank=True, null=True) 
+    cover_image = models.ImageField(upload_to='covers/', blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        abstract = True  # Ensure this model is not created as a database table
 
     def __str__(self):
         return self.title
+    
+# Separate models for each form level
+class Form1Video(BaseVideo):
+    class Meta:
+        verbose_name = "Form 1 Video"
+        verbose_name_plural = "Form 1 Videos"
+
+class Form2Video(BaseVideo):
+    class Meta:
+        verbose_name = "Form 2 Video"
+        verbose_name_plural = "Form 2 Videos"
+
+class Form3Video(BaseVideo):
+    class Meta:
+        verbose_name = "Form 3 Video"
+        verbose_name_plural = "Form 3 Videos"
+
+class Form4Video(BaseVideo):
+    class Meta:
+        verbose_name = "Form 4 Video"
+        verbose_name_plural = "Form 4 Videos"
 
 def upload_to(instance, filename):
     # Determine the path based on the model class
