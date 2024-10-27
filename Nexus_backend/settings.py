@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from a .env file if available
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -147,9 +150,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cloudinary configuration
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'Nexus',
-    'API_KEY': '774212368658451',
-    'API_SECRET': 'JKJdGJr-58-YommLzR7Pz9Tl9KI',
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME', 'Nexus'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY', 'your_default_api_key_here'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET', 'your_default_api_secret_here'),
 }
 
 # Configure Django to use Cloudinary as the default storage for media files
