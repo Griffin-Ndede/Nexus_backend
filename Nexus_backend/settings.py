@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "localhost",
     '127.0.0.1',
+    'nexus-backend-kia6.onrender.com',
 ]
 # Application definition
 
