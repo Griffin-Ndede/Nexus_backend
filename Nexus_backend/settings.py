@@ -150,9 +150,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cloudinary configuration
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME', 'Nexus'),
-    'API_KEY': os.getenv('CLOUDINARY_API_KEY', 'your_default_api_key_here'),
-    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET', 'your_default_api_secret_here'),
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
 }
 
 # Configure Django to use Cloudinary as the default storage for media files
