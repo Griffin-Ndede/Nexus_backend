@@ -3,8 +3,15 @@ from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import status
 from .models import Form1Video, Form2Video, Form3Video, Form4Video, Categories
-from .serializers import Form1VideoSerializer, Form2VideoSerializer, Form3VideoSerializer, Form4VideoSerializer, CategoriesSerializer
+from .serializers import Form1VideoSerializer, Form2VideoSerializer, Form3VideoSerializer, Form4VideoSerializer, CategoriesSerializer, HomeSerializer
 
+
+class Home(APIView):
+    def get(self, request, *args, **kwargs):
+        data = {"message": "Welcome to the home page!"}
+        serializer = HomeSerializer(data)
+        return Response(serializer.data)
+    
 class BaseVideoUploadView(APIView):
     parser_classes = (MultiPartParser, FormParser)
 

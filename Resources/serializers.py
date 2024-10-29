@@ -1,6 +1,10 @@
 from rest_framework import serializers
 from .models import Form1Video, Form2Video, Form3Video, Form4Video, Categories
 
+
+class HomeSerializer(serializers.Serializer):
+    message = serializers.CharField()
+    
 class BaseVideoSerializer(serializers.ModelSerializer):
     video_url = serializers.SerializerMethodField()  # Absolute URL for the video file
     cover_image_url = serializers.SerializerMethodField()  # Absolute URL for the cover image

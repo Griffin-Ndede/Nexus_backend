@@ -4,10 +4,12 @@ from .views import (
     Form2VideoUploadView, Form2VideoListView,
     Form3VideoUploadView, Form3VideoListView,
     Form4VideoUploadView, Form4VideoListView,
-    CategoriesView
+    CategoriesView, Home
 )
 
 urlpatterns = [
+
+    path('', Home.as_view(), name='home'),
     # Form 1 Video URLs
     path('upload/form1/', Form1VideoUploadView.as_view(), name='form1-video-upload'),
     path('videos/form1/', Form1VideoListView.as_view(), name='form1-video-list'),
