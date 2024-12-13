@@ -94,17 +94,17 @@ WSGI_APPLICATION = 'Nexus_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
-    "default": dj_database_url.parse(
-        "postgresql://nexus_db_d7q6_user:AbflVTpaB9L3PjOvm0aQOABJQgS8TWj6@dpg-csf1ce68ii6s739aae00-a.oregon-postgres.render.com/nexus_db_d7q6"
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+# DATABASES = {
+#     "default": dj_database_url.parse(
+#         "postgresql://nexus_db_d7q6_user:AbflVTpaB9L3PjOvm0aQOABJQgS8TWj6@dpg-csf1ce68ii6s739aae00-a.oregon-postgres.render.com/nexus_db_d7q6"
+#     )
+# }
 
 
 # Password validation
